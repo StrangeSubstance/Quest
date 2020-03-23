@@ -21,16 +21,21 @@ namespace Quest
     /// </summary>
     public partial class MainWindow : Window
     {
+        public DispatcherTimer timer;
+        public TimeSpan timetozero;
+        public readonly TimeSpan interval = TimeSpan.FromMilliseconds(-15);
+
         public MainWindow()
         {
             InitializeComponent();
+            Timer_Set();
         }
 
         public void Timer_Set() 
         {
-            var timer = new DispatcherTimer();
+            timer = new DispatcherTimer(DispatcherPriority.Send);
             timer.Tick += new EventHandler(Timer_Tick);
-            timer.Interval = new TimeSpan(0, 0, 1);
+            timer.Interval = TimeSpan.FromMilliseconds(15);
             timer.Start();
         }
 
@@ -38,6 +43,34 @@ namespace Quest
         {
             lblSeconds.Content = DateTime.Now.Second;
             CommandManager.InvalidateRequerySuggested();
+            lblSeconds.Visibility = Visibility.Visible;
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            int counter = 0;
+            counter++;
+            if (counter == 10 && (int)lblSeconds.Content != 0)
+            {
+                MessageBox.Show("Уровень пройден");
+            }
+            else if (counter <= 10 && (int)lblSeconds.Content != 0)
+            {
+
+            }
+            else
+            {
+                MessageBox.Show("Не успел, старайся лучше");
+            }
+
+
+            //if()
+            //    {
+            //    for (int i = 0; i < 10; i++)
+            //    {
+
+            //    }
+            //}
         }
     }
 }
