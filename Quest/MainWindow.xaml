@@ -7,21 +7,29 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid x:Name="bigGrid">
+        <Button x:Name ="skip"  Content="Пропустить уровень" HorizontalAlignment="Left" Height="35" Margin="618,27,0,0" VerticalAlignment="Top" Width="121" Click="Skip_Click"/>
         <TextBox x:Name="textBox" Height="60" Width="220" VerticalAlignment="Top" HorizontalContentAlignment="Center"
                  VerticalContentAlignment="Center" IsReadOnly="True" FontSize="25" Margin="0, 10, 0, 0" Background="#FFBFB5B5" BorderBrush="Black">Level 1</TextBox>
-        <Grid x:Name="lvl3" Margin="0,70,0,0">
-            <Grid x:Name="lvl2" Margin="0,0,0,0">
-                <Grid x:Name="smallGrid" Margin="0,0,0,0">
-                    <TextBox x:Name="warning" Height="50" FontSize="25" Width="300" TextAlignment="Center" Margin="0,-280,0,0" Text="Спаси их как-нибудь!!!"></TextBox>
-                    <Label x:Name="lblSeconds" Height="50" FontSize="25" Width="200" Margin="0, 80, 0, 0" VerticalAlignment="Top"></Label>
-                    <Button x:Name="button" Content="..." VerticalContentAlignment="Top" FontSize="25" Height="50" Width="200" Click="button_Click" />
-                    <Image HorizontalAlignment="Left" Height="151" Margin="10,10,0,0" VerticalAlignment="Top" Width="178"/>
-                    <Image Margin="0,0,567,149" Source="Image1.png" Stretch="Fill"/>
-                    <Image Margin="558,10,0,188" Source="1.jpg" Stretch="Fill"/>
-                    <Image Margin="558,204,10,10" Source="2.jpg" Stretch="Fill"/>
-                    <Image Margin="296,204,246,9" Source="3.jpg" Stretch="Fill"/>
-                </Grid>
-            </Grid>
+        <Grid x:Name="smallGrid" Margin="0,70,0,0">
+            <TextBox x:Name="warning" Height="50" FontSize="25" Width="300" TextAlignment="Center" Margin="0,-280,0,0" Text="Спаси их как-нибудь!!!"></TextBox>
+            <Label x:Name="lblSeconds" Height="50" FontSize="25" Width="200" Margin="0, 80, 0, 0" VerticalAlignment="Top"></Label>
+            <Button x:Name="button" Content="..." VerticalContentAlignment="Top" FontSize="25" Height="50" Width="200" Click="button_Click" />
+            <Image HorizontalAlignment="Left" Height="151" Margin="10,10,0,0" VerticalAlignment="Top" Width="178"/>
+            <Image Margin="0,0,567,149" Source="Image1.png" Stretch="Fill"/>
+            <Image Margin="558,10,0,188" Source="1.jpg" Stretch="Fill"/>
+            <Image Margin="558,204,10,10" Source="2.jpg" Stretch="Fill"/>
+            <Image Margin="296,204,246,9" Source="3.jpg" Stretch="Fill"/>
         </Grid>
     </Grid>
+
+    <Window.Resources>
+        <Style TargetType="GridViewColumnHeader" x:Key="ColumnHeaderLarge">
+            <Setter Property="FontSize" Value="25"/>
+        </Style>
+
+        <DataTemplate x:Key="keyForPuppy">
+            <Label Content="Песонька" Height="100" Width="200"/>
+        </DataTemplate>
+    </Window.Resources>
+
 </Window>
